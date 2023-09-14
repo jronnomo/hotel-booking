@@ -64,7 +64,7 @@ hotel_ID = input("Enter the ID of the hotel: ")
 hotel = Hotel(hotel_ID)
 creditcard = SecureCreditCard(number="1234")
 if creditcard.validate(date="12/26", cvc="123", holder="JOHN SMITH"):
-    if creditcard.authenticate(given_password='mypass'):
+    if creditcard.authenticate(given_password='mypass1'):
         if hotel.available():
             hotel.book()
             name = input("Enter your name: ")
@@ -72,5 +72,7 @@ if creditcard.validate(date="12/26", cvc="123", holder="JOHN SMITH"):
             print(reservation_ticket.generate())
         else:
             print("Hotel is not available to book.")
+    else:
+        print("Credit card was not authenticated.")
 else:
     print("Credit card is not valid")
